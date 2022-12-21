@@ -15,7 +15,5 @@ public class Main {
         System.out.println("Сравнение авторов");
         System.out.println(author1.equals(author2));
 
-        System.out.println();
-
-        }
+    }
 }

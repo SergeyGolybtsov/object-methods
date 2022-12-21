@@ -1,8 +1,8 @@
+import java.util.Objects;
+
 public class Author {
     private String ferstName;
     private String surName;
-
-    private String nick;
 
     public Author(String ferstName, String surNeme) {
         this.ferstName = ferstName;
@@ -21,17 +21,16 @@ public class Author {
         return " Автор " + this.surName + " " + this.ferstName;
     }
 
-    public String getNick() {
-        return nick;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(ferstName, author.ferstName) && Objects.equals(surName, author.surName) ;
     }
 
-    public boolean equals(Object piska) {
-        if (getClass() != piska.getClass()){
-            return false;
-        }
-        return toString().equals(piska.toString());
-    }
+    @Override
     public int hashCode() {
-        return java.util.Objects.hash(toString());
+        return Objects.hash(ferstName, surName);
     }
 }
